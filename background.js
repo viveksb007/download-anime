@@ -4,19 +4,21 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 
 chrome.runtime.onMessage.addListener(
   function(request,sender){
-    if(request.src == 'rapidVideo'){
-      // first open rapid src tab and extract url
+
+    if(request.type == 'videoLink'){
+      console.log(request.url);
       openDownloadWindow(request.url);
-    }else if (request.src == 'betaServer') {
-      openDownloadWindow(request.url);
+    }else if(request.type == 'iframeLink'){
+      openTabAndExtractURL(request.url,request.src);
     }
-    console.log(request.src);
-    console.log(request.url);
+
   }
 );
 
-function openTabAndExtractURL(url){
-  // Rapid Video Server aren't working atm.
+function openTabAndExtractURL(url,src){
+  chrome.tabs.create({url:url},function(tab){
+    chrome.tabs.executeScript(tab.id,{file:"iframelink_scrape.js"});
+  });
 }
 
 function openDownloadWindow(link){
