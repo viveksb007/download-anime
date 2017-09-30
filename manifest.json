@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "Anime-Download",
+  "description": "This extension allows the user to download anime from Kissanime.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "sharingan.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "background"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+
+}
