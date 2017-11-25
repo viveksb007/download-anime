@@ -7,9 +7,9 @@ console.log(server);
 
 if(server.search("s=rapidvideo") != -1){
   rapidVideo();
-}else if(server.search("s=beta") != -1){
+}else if(server.search("s=beta") != -1 || server.search("s=kissanime")){
   betaServer();
-}else if(server.search("s=openload") != -1 || server.search("s=kissanime")){
+}else if(server.search("s=openload") != -1){
 	openload();
 }
 

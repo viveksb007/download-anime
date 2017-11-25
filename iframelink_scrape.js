@@ -1,7 +1,7 @@
 var URL = document.URL;
 console.log(URL);
 if(URL.search("rapidvideo")){
-	var downloadLink = document.getElementById("vjs_video_3_html5_api").firstChild.getAttribute("src");
+	var downloadLink = document.getElementById("videojs_html5_api").firstChild.getAttribute("src");
     chrome.runtime.sendMessage({src:'rapidVideo' , url:downloadLink, type:'videoLink'});
     close();
 }else if(URL.search("openload")){
